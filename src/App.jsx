@@ -2,7 +2,9 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import MeusAgendamentos from "./pages/MeusAgendamentos";
-import NovoAgendamento from "./pages/NovoAgendamento"; // Importação da tela real do formulário
+import NovoAgendamento from "./pages/NovoAgendamento";
+import ComprovanteAgendamento from "./pages/ComprovanteAgendamento";
+import RelatoriosGerenciais from "./pages/RelatoriosGerenciais";
 
 // Componente para proteger as rotas
 function PrivateRoute({ children }) {
@@ -41,6 +43,24 @@ export function App() {
           element={
             <PrivateRoute>
               <MeusAgendamentos />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/comprovante"
+          element={
+            <PrivateRoute>
+              <ComprovanteAgendamento />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/relatorios"
+          element={
+            <PrivateRoute>
+              <RelatoriosGerenciais />
             </PrivateRoute>
           }
         />
